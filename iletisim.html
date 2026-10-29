@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yüce Dekor - İletişim</title>
+    <link rel="stylesheet" href="stylee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+      // Sayfa yüklenirken beyaz ekran patlamasını (flash) önlemek için hızlı kontrol
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    </script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/logo3.png" class="logo" alt="logo" />
+        </a>
+        <a href="index.html">
+          <span class="brand-name">YÜCE DEKOR</span>
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="index.html#Hizmetler">Hizmetler</a></li>
+        <li><a href="index.html#AYRICALIKLARIMIZ">Hakkında</a></li>
+        <li><a href="projeler.html">Projeler</a></li>
+        <li><a href="iletisim.html" class="active">İletişim</a></li>
+      </ul>
+
+      <!-- Sağ Bölüm: Gece Modu & Hamburger -->
+      <div class="nav-right">
+        <a href="admin/index.html" class="admin-nav-link" title="Admin Girişi" aria-label="Admin Girişi">
+          <i class="fas fa-lock"></i>
+        </a>
+
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Gece Modu">
+          <!-- Sun Icon (Güneş - Karanlık Modda Gösterilir) -->
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <!-- Moon Icon (Ay - Aydınlık Modda Gösterilir) -->
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
+
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-page-section">
+      <div class="contact-container">
+        <!-- INFO -->
+        <div class="contact-info-wrapper">
+          <div class="title-box">
+            <h2>Bizimle İletişime Geçin</h2>
+          </div>
+          <p class="contact-desc">
+            Projeleriniz hakkında bilgi almak için bize ulaşabilirsiniz.
+          </p>
+          <div class="contact-details">
+            <div class="contact-box">
+              <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+              <div class="text-box">
+                <span class="label">Telefon</span>
+                <a href="tel:+905449009495" class="value">+90 (544) 900 94 95</a>
+              </div>
+            </div>
+            <div class="contact-box">
+              <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+              <div class="text-box">
+                <span class="label">WhatsApp</span>
+                <a href="https://wa.me/905449009495" target="_blank" class="value">Mesaj Gönder</a>
+              </div>
+            </div>
+            <div class="contact-box">
+              <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="text-box">
+                <span class="label">Adres</span>
+                <span class="value">Cudi Mahallesi<br>Mirbedirhan Sokak</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="contact-form-wrapper">
+          <form id="contactForm" action="https://formspree.io/f/mgojzdpg" method="POST" class="custom-form">
+            <!-- AD SOYAD -->
+            <div class="input-group">
+              <label>AD SOYAD</label>
+              <input type="text" id="userName" name="adsoyad" placeholder="İsminiz" required>
+            </div>
+            <!-- TELEFON -->
+            <div class="input-group">
+              <label>TELEFON</label>
+              <input type="tel" id="userPhone" name="telefon" placeholder="Ör (055512345**)" maxlength="11" required>
+            </div>
+            <!-- KONU -->
+            <div class="input-group">
+              <label>KONU</label>
+              <select name="konu" required>
+                <option value="">Lütfen seçiniz</option>
+                <option value="Tv Ünitesi">Tv Ünitesi</option>
+                <option value="Duvar Çıtası">Duvar Çıtası</option>
+                <option value="Asma Tavan">Asma Tavan</option>
+                <option value="Genel Dekorasyon">Genel Dekorasyon</option>
+              </select>
+            </div>
+            <!-- MESAJ -->
+            <div class="input-group">
+              <label>MESAJINIZ</label>
+              <textarea name="mesaj" rows="4" placeholder="Detayları yazın..." required></textarea>
+            </div>
+            <!-- KVKK -->
+            <label style="display:flex; gap:8px; align-items:center; margin:10px 0;">
+              <input type="checkbox" required>
+              KVKK Açık Rıza Beyanını kabul ediyorum
+            </label>
+            <button type="submit" class="submit-btn">
+              MESAJ GÖNDER <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALIDATION SCRIPT -->
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+        const nameValue = document.getElementById('userName').value.trim();
+        const phoneValue = document.getElementById('userPhone').value.trim();
+
+        const nameRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/;
+        const phoneRegex = /^\d{11}$/;
+
+        if (!nameRegex.test(nameValue)) {
+          event.preventDefault();
+          alert("Ad soyad sadece harflerden oluşmalıdır.");
+          return;
+        }
+
+        if (!phoneRegex.test(phoneValue)) {
+          event.preventDefault();
+          alert("Telefon 11 haneli olmalıdır (0 ile başlamalı).");
+          return;
+        }
+      });
+    </script>
+
+    <!-- MAP SECTION -->
+    <section class="map-section">
+      <div class="map-overlay">
+        <div class="map-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>YÜCE DEKOR</h3>
+          <p>Cudi Mah. Bedirhan Sk. No:3<br>73200 Cizre / Şırnak</p>
+          <a href="https://maps.google.com/?q=Cudi,+Bedirhan+Sk.+No:3,+73200+Cizre/Şırnak" target="_blank" class="btn-directions">YOL TARİFİ AL</a>
+        </div>
+      </div>
+      <iframe src="https://maps.google.com/maps?q=Cudi,+Bedirhan+Sk.+No:3,+73200+Cizre/Şırnak&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- SOCIAL FOLLOW SECTION -->
+    <section class="social-follow-section">
+      <h2>SOSYAL MEDYADA BİZİ TAKİP EDİN</h2>
+      <div class="social-links-grid">
+        <a href="https://www.instagram.com/yucedekor73cizre/" target="_blank" class="social-item instagram">
+          <i class="fab fa-instagram"></i>
+          <span>INSTAGRAM</span>
+        </a>
+        <a href="https://wa.me/905449009495?text=Merhaba%20bilgi%20almak%20istiyorum." target="_blank" class="social-item whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          <span>WHATSAPP</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; <span id="current-year">2026</span> Yüce Dekor. Tüm Hakları Saklıdır.</p>
+      </div>
+    </footer>
+
+    <!-- Floating Social Media Bar (Sabit Sosyal Medya Butonları) -->
+    <div class="floating-socials">
+      <a href="https://www.instagram.com/yucedekor73cizre/" target="_blank" class="floating-item instagram" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.me/905449009495?text=Merhaba%20bilgi%20almak%20istiyorum." target="_blank" class="floating-item whatsapp" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="tel:+905449009495" class="floating-item phone" aria-label="Telefon">
+        <i class="fas fa-phone-alt"></i>
+      </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          navLinks.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+          });
+        });
+      }
+
+      // GECE MODU (DARK MODE) ETKİLEŞİMİ
+      const themeToggle = document.getElementById("theme-toggle");
+
+      themeToggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark-mode");
+        if (document.documentElement.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

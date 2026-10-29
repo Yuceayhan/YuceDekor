@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Girişi - Yüce Dekor</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-body">
+
+  <div class="login-card">
+    <img src="../images/logo3.png" alt="Yüce Dekor Logo" class="logo">
+    <h2>YÜCE DEKOR</h2>
+    <p>Yönetici Paneli Girişi</p>
+
+    <div id="login-alert" class="alert-box alert-danger"></div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username"><i class="fas fa-user"></i> Kullanıcı Adı</label>
+        <input type="text" id="username" class="form-input" placeholder="Admin kullanıcı adı" required autocomplete="username">
+      </div>
+
+      <div class="form-group">
+        <label for="password"><i class="fas fa-lock"></i> Şifre</label>
+        <input type="password" id="password" class="form-input" placeholder="Şifreniz" required autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="btn-primary">
+        <i class="fas fa-sign-in-alt"></i> Giriş Yap
+      </button>
+    </form>
+  </div>
+
+  <script>
+    // Dinamik API Adresi (Live Server 5500 portu veya file:// protokolünde 3000 portuna yönlendirir)
+    const API_BASE = (window.location.port === '5500' || window.location.port === '5501' || window.location.protocol === 'file:') 
+      ? 'http://localhost:3000' 
+      : '';
+
+    // Eğer zaten token varsa dashboard'a yönlendir
+    function checkAlreadyLoggedIn() {
+      if (localStorage.getItem('yuce_admin_token')) {
+        window.location.replace('index.html');
+      }
+    }
+    checkAlreadyLoggedIn();
+    window.addEventListener('pageshow', checkAlreadyLoggedIn);
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const alertBox = document.getElementById('login-alert');
+
+      alertBox.style.display = 'none';
+
+      try {
+        const response = await fetch(`${API_BASE}/api/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const contentType = response.headers.get('content-type');
+        let data;
+        if (contentType && contentType.includes('application/json')) {
+          data = await response.json();
+        } else {
+          throw new Error(`Sunucuya ulaşılamadı (${response.status}). Lütfen backend sunucusunun (http://localhost:3000) çalıştığından emin olun.`);
+        }
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Giriş yapılamadı.');
+        }
+
+        // Token ve kullanıcı bilgisini sakla
+        localStorage.setItem('yuce_admin_token', data.token);
+        localStorage.setItem('yuce_admin_user', JSON.stringify(data.user));
+
+        window.location.replace('index.html');
+      } catch (err) {
+        alertBox.textContent = err.message;
+        alertBox.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

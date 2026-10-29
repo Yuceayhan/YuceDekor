@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projelerimiz - Yüce Dekor</title>
+    <link rel="stylesheet" href="stylee.css" />
+    <script>
+      // Sayfa yüklenirken beyaz ekran patlamasını (flash) önlemek için hızlı kontrol
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/logo3.png" class="logo" alt="logo" />
+        </a>
+        <a href="index.html">
+          <span class="brand-name">YÜCE DEKOR</span>
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="index.html#Hizmetler">Hizmetler</a></li>
+        <li><a href="index.html#AYRICALIKLARIMIZ">Hakkında</a></li>
+        <li><a href="projeler.html">Projeler</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+
+      <!-- Sağ Bölüm: Gece Modu & Hamburger -->
+      <div class="nav-right">
+        <a href="admin/index.html" class="admin-nav-link" title="Admin Girişi" aria-label="Admin Girişi">
+          <i class="fas fa-lock"></i>
+        </a>
+
+        <button
+          class="theme-toggle-btn"
+          id="theme-toggle"
+          aria-label="Gece Modu"
+        >
+          <!-- Sun Icon (Güneş - Karanlık Modda Gösterilir) -->
+          <svg
+            class="sun-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            />
+          </svg>
+          <!-- Moon Icon (Ay - Aydınlık Modda Gösterilir) -->
+          <svg
+            class="moon-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <section class="transformation-section">
+      <div class="section-header">
+        <span class="subtitle">DÖNÜŞÜMÜN GÜCÜ</span>
+        <h2>Öncesi 💎 Sonrası Portfolyomuz</h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <!-- Kategori Filtre Butonları (8 Hizmet Grubu) -->
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn" data-filter="tv-unitesi">TV Ünitesi</button>
+        <button class="filter-btn" data-filter="led-tavan">LED Tavan</button>
+        <button class="filter-btn" data-filter="asma-tavan">Asma Tavan</button>
+        <button class="filter-btn" data-filter="ic-cephe-boya">
+          İç Cephe Boya
+        </button>
+        <button class="filter-btn" data-filter="dis-cephe-boya">
+          Dış Cephe Boya
+        </button>
+        <button class="filter-btn" data-filter="3d-duvar">3D Duvar</button>
+        <button class="filter-btn" data-filter="anahtar-teslim">
+          Anahtar Teslim
+        </button>
+        <button class="filter-btn" data-filter="ofis">Ofis</button>
+      </div>
+
+      <div class="transformation-container">
+        <!-- ================= 1. TV ÜNİTESİ TASARIMI (2 ADET) ================= -->
+        <!-- TV Kartı 1 -->
+        <div class="ba-card" data-category="tv-unitesi">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/tvunitesisonra2.jpg&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;images/tvunitesionce2.jpg&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">TV ÜNİTESİ</span>
+            <h3>Modern TV Ünitesi</h3>
+            <p>
+              Eski boş ve sıradan oturma odası duvarının lüks ahşap ve mermer TV
+              ünitesine dönüşümü.
+            </p>
+          </div>
+        </div>
+
+        <!-- TV Kartı 2 -->
+        <div class="ba-card" data-category="tv-unitesi">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/tvunitesisonra3.jpg&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;images/tvunitesionce3.png&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">TV ÜNİTESİ</span>
+            <h3>Premium Mermer TV Duvarı</h3>
+            <p>
+              Eski sade ve dağınık konsollu salon duvarının; lüks mermer kaplama
+              TV paneline, modern zemin kaplamasına ve şık merdiven
+              aydınlatmalarına sahip muhteşem dönüşümü.
+            </p>
+          </div>
+        </div>
+
+        <!-- ================= 2. LED TAVAN UYGULAMALARI (2 ADET) ================= -->
+        <!-- LED Tavan Kartı 1 -->
+        <div class="ba-card" data-category="led-tavan">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/ledtavansonra1.png&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;images/ledtavanonce1.png&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">LED TAVAN</span>
+            <h3>Lüks Havuzlu LED Tavan</h3>
+            <p>
+              Avizeli sade salon tavanının; şık gömme spotlar ve sıcacık
+              günışığı gizli LED aydınlatmalı modern havuz tavan yapısına
+              dönüşümü.
+            </p>
+          </div>
+        </div>
+
+        <!-- LED Tavan Kartı 2 -->
+        <div class="ba-card" data-category="led-tavan">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/ledtavansonra2.png&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;images/ledtavanonce2.png&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">LED TAVAN</span>
+            <h3>Mutfak Çift Renkli LED Tavan</h3>
+            <p>
+              Tek ampullü eski mutfak tavanının; mavi ve günışığı çift renk LED
+              şerit kanallı, modern ankastre mutfak dolaplarıyla entegre asma
+              tavana dönüşümü.
+            </p>
+          </div>
+        </div>
+
+        <!-- ================= 3. ASMA TAVAN SİSTEMLERİ (2 ADET) ================= -->
+        <!-- Asma Tavan Kartı 1 -->
+        <div class="ba-card" data-category="asma-tavan">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/asmatavansonra1.jpg&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;images/asmatavanonce1.jpg&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">ASMA TAVAN</span>
+            <h3>Endüstriyel Ofis Asma Tavanı</h3>
+            <p>
+              Açıkta duran beton tavan, havalandırma boruları ve kablo
+              kanallarının; gizli aydınlatmalı, dalgalı custom tasarım lüks asma
+              tavana dönüşümü.
+            </p>
+          </div>
+        </div>
+
+        <!-- Asma Tavan Kartı 2 -->
+        <div class="ba-card" data-category="asma-tavan">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/asmatavansonra2.png&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;images/asmatavanonce2.jpg&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">ASMA TAVAN</span>
+            <h3>Lüks Coffered Asma Tavan</h3>
+            <p>
+              Alçıpan ve karkas aşamasındaki ham tavan yapısının; led ışıklı,
+              çok kademeli modern geometrik asma tavana muhteşem dönüşümü.
+            </p>
+          </div>
+        </div>
+
+        <!-- ================= 4. İÇ CEPHE BOYA (2 ADET) ================= -->
+        <!-- İç Cephe Kartı 1 -->
+        <div class="ba-card" data-category="ic-cephe-boya">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/iccephesonra1.png&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="background-image: url(&quot;images/iccepheonce1.jpg&quot;)"
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">İÇ CEPHE BOYA</span>
+            <h3>Şömineli Salon İç Cephe Boyama</h3>
+            <p>
+              Boyama aşamasında sıvaları akan, dökülen ve lekelenen şömineli
+              yüksek tavanlı salonun; pürüzsüz mat beyaz lüks boyayla
+              yenilenmesi.
+            </p>
+          </div>
+        </div>
+
+        <!-- İç Cephe Kartı 2 -->
+        <div class="ba-card" data-category="ic-cephe-boya">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/iccephesonra2.png&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="background-image: url(&quot;images/iccepheonce2.jpg&quot;)"
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">İÇ CEPHE BOYA</span>
+            <h3>Modern Oturma Odası Boyama</h3>
+            <p>
+              Zımpara ve astar (plaster) aşamasındaki ham mat duvarların; trend
+              vizon/bej renginde şık ve silinebilir iç cephe boyasıyla
+              tamamlanması.
+            </p>
+          </div>
+        </div>
+
+        <!-- ================= 5. DIŞ CEPHE BOYA (2 ADET) ================= -->
+        <!-- Dış Cephe Kartı 1 -->
+        <div class="ba-card" data-category="dis-cephe-boya">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/discephesonra1.png&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;images/discepheonce1.jpg&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">DIŞ CEPHE BOYA</span>
+            <h3>Müstakil Villa Dış Cephe Boyama</h3>
+            <p>
+              Kaba inşaat aşamasındaki tuğlalı ve ham beton sıvalı lüks
+              villanın; dekoratif fuga kaplama ve çift renkli dış cephe
+              boyasıyla tamamlanması.
+            </p>
+          </div>
+        </div>
+
+        <!-- Dış Cephe Kartı 2 -->
+        <div class="ba-card" data-category="dis-cephe-boya">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="
+                background-image: url(&quot;images/discephesonra2.png&quot;);
+              "
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;images/discepheonce2.jpg&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">DIŞ CEPHE BOYA</span>
+            <h3>Bina Dış Cephe ve Mantolama</h3>
+            <p>
+              Eski, nemden kararmış ve sıvaları çatlamış apartman dış
+              cephesinin; ısı yalıtım mantolaması ile beyaz-siyah modern boya
+              uygulamasına kavuşması.
+            </p>
+          </div>
+        </div>
+
+        <!-- ================= 6. 3D DUVAR DEKORASYONU (2 ADET) ================= -->
+        <!-- 3D Duvar Kartı 1 -->
+        <div class="ba-card" data-category="3d-duvar">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="background-image: url(&quot;images/3ddvr1.jpg&quot;)"
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">3D DUVAR</span>
+            <h3>3D Akustik Ahşap Duvar Kağıdı</h3>
+            <p>
+              Eski boş kirli duvarın derinlikli ve akustik 3 boyutlu duvar
+              paneliyle kaplanması.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3D Duvar Kartı 2 -->
+        <div class="ba-card" data-category="3d-duvar">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="background-image: url(&quot;images/3ddvr2.jpg&quot;)"
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1200&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">3D DUVAR</span>
+            <h3>3D Duvar Kağıdı</h3>
+            <p>
+              Eski düz ve yıpranmış salon duvarının simetrik çıta panellerle
+              klasikleşmesi.
+            </p>
+          </div>
+        </div>
+
+        <!-- ================= 7. ANAHTAR TESLİM TADİLAT (2 ADET) ================= -->
+        <!-- Anahtar Teslim Kartı 1 -->
+        <div class="ba-card" data-category="anahtar-teslim">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="background-image: url(&quot;images/after.png&quot;)"
+            ></div>
+            <div
+              class="img before-img show"
+              style="background-image: url(&quot;images/before.png&quot;)"
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">ANAHTAR TESLİM</span>
+            <h3>Lüks Tadilat</h3>
+            <p>
+              Eski, demode ahşap mutfak dolaplarının yıkılıp komple modern
+              ankastre mutfağa dönüştürülmesi.
+            </p>
+          </div>
+        </div>
+
+        <!-- Anahtar Teslim Kartı 2 -->
+        <div class="ba-card" data-category="anahtar-teslim">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="background-image: url(&quot;images/dekorasyon1.jpg&quot;)"
+            ></div>
+            <div
+              class="img before-img show"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=1200&quot;);
+              "
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">ANAHTAR TESLİM</span>
+            <h3>Komple Daire Tadilat</h3>
+            <p>
+              Eski yıpranmış, bakımsız daireden A'dan Z'ye tamamlanmış lüks
+              salon dekorasyonuna.
+            </p>
+          </div>
+        </div>
+
+        <!-- ================= 8. OFİS DEKORASYONU (2 ADET) ================= -->
+        <!-- Ofis Kartı 1 -->
+        <div class="ba-card" data-category="ofis">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="background-image: url(&quot;images/ofissonra1.jpg&quot;)"
+            ></div>
+            <div
+              class="img before-img show"
+              style="background-image: url(&quot;images/ofisonce1.png&quot;)"
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">OFİS</span>
+            <h3>Premium Yönetici Odası</h3>
+            <p>
+              Mermer desenli duvar panelleri ve ahşap çıtaları hazır olan boş
+              ofis odasının; lüks makam masası, dolaplar ve led raf
+              aydınlatmalarıyla döşenmesi.
+            </p>
+          </div>
+        </div>
+
+        <!-- Ofis Kartı 2 -->
+        <div class="ba-card" data-category="ofis">
+          <div class="ba-slider">
+            <div
+              class="img after-img"
+              style="background-image: url(&quot;images/ofissonra2.jpg&quot;)"
+            ></div>
+            <div
+              class="img before-img show"
+              style="background-image: url(&quot;images/ofisonce2.png&quot;)"
+            ></div>
+            <div class="ba-toggle-tabs">
+              <button class="ba-tab-btn active" data-tab="before">
+                Öncesi
+              </button>
+              <button class="ba-tab-btn" data-tab="after">Sonrası</button>
+            </div>
+          </div>
+          <div class="ba-info">
+            <span class="category-tag">OFİS</span>
+            <h3>Kurumsal Ofis & Toplantı Odası</h3>
+            <p>
+              Sadece duvarları boyalı ve storları asılı olan boş geniş salonun;
+              şık toplantı masası, projeksiyon sistemi, çalışma masaları ve ofis
+              mobilyalarıyla tamamlanması.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>
+          &copy; <span id="current-year">2026</span> Yüce Dekor. Tüm Hakları
+          Saklıdır.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
+
+    <!-- Floating Social Media Bar (Sabit Sosyal Medya Butonları) -->
+    <div class="floating-socials">
+      <a
+        href="https://www.instagram.com/yucedekor73cizre/"
+        target="_blank"
+        class="floating-item instagram"
+        aria-label="Instagram"
+      >
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a
+        href="https://wa.me/905449009495?text=Merhaba%20bilgi%20almak%20istiyorum."
+        target="_blank"
+        class="floating-item whatsapp"
+        aria-label="WhatsApp"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a
+        href="tel:+905449009495"
+        class="floating-item phone"
+        aria-label="Telefon"
+      >
+        <i class="fas fa-phone-alt"></i>
+      </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          navLinks.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+          });
+        });
+      }
+
+      // 3. GECE MODU (DARK MODE) ETKİLEŞİMİ
+      const themeToggle = document.getElementById("theme-toggle");
+
+      themeToggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark-mode");
+
+        // Tercihi localStorage'a kaydet
+        if (document.documentElement.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      });
+    </script>
+
+    <script>
+      // 1. İNTERAKTİF SEKMELİ GEÇİŞ (PILL TABS) TIKLAMA KONTROLÜ (CLICK-ONLY & DEFAULT BEFORE ACTIVE)
+      const tabButtons = document.querySelectorAll(".ba-tab-btn");
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const parent = btn.closest(".ba-card");
+          const tab = btn.getAttribute("data-tab");
+          const beforeImg = parent.querySelector(".before-img");
+
+          // Aktif buton sınıfını güncelle
+          parent
+            .querySelectorAll(".ba-tab-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          if (tab === "before") {
+            beforeImg.classList.add("show");
+          } else {
+            beforeImg.classList.remove("show");
+          }
+        });
+      });
+
+      // 2. PORTFOLYO KATEGORİ FİLTRELEME
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const portfolioCards = document.querySelectorAll(".ba-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Aktif butonu değiştir
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          const filter = button.getAttribute("data-filter");
+
+          portfolioCards.forEach((card) => {
+            if (filter === "all") {
+              card.style.display = "block";
+            } else if (card.getAttribute("data-category") === filter) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

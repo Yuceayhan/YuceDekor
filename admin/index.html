@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Yüce Dekor</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script>
+    (function () {
+      function checkAuth() {
+        if (!localStorage.getItem('yuce_admin_token')) {
+          if (document.documentElement) document.documentElement.style.display = 'none';
+          window.location.replace('login.html');
+        }
+      }
+      checkAuth();
+      window.addEventListener('pageshow', function (event) {
+        checkAuth();
+      });
+      window.addEventListener('popstate', function () {
+        checkAuth();
+      });
+    })();
+  </script>
+  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="admin-container">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="../images/logo3.png" alt="Yüce Dekor">
+        <h2>YÜCE DEKOR</h2>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="#" class="active" id="nav-products">
+            <i class="fas fa-cubes"></i> Hizmet & Ürün Yönetimi
+          </a>
+        </li>
+        <li>
+          <a href="#" id="nav-change-password">
+            <i class="fas fa-key"></i> Şifre Değiştir
+          </a>
+        </li>
+        <li>
+          <a href="../index.html">
+            <i class="fas fa-external-link-alt"></i> Siteyi Görüntüle
+          </a>
+        </li>
+        <li style="margin-top: 10px; padding: 0 20px;">
+          <button class="btn-logout" id="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Çıkış Yap
+          </button>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <!-- TOP BAR -->
+      <div class="top-bar">
+        <h1>Yönetim Kontrol Paneli</h1>
+        <div class="user-badge">
+          <i class="fas fa-user-shield"></i> <span id="admin-username-display">Admin</span>
+        </div>
+      </div>
+
+      <!-- DASHBOARD STATS -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-info">
+            <h3>Toplam Hizmet/Ürün</h3>
+            <div class="stat-number" id="stat-total">0</div>
+          </div>
+          <div class="stat-icon">
+            <i class="fas fa-boxes"></i>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <h3>Yayında Olanlar</h3>
+            <div class="stat-number" id="stat-active">0</div>
+          </div>
+          <div class="stat-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <h3>Aktif İndirimli Ürünler</h3>
+            <div class="stat-number" id="stat-discounted">0</div>
+          </div>
+          <div class="stat-icon">
+            <i class="fas fa-tags"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTENT HEADER & ACTIONS -->
+      <div class="content-header">
+        <h2>Hizmet ve Ürün Listesi</h2>
+        <button class="btn-add" id="open-add-modal">
+          <i class="fas fa-plus"></i> Yeni Hizmet / Ürün Ekle
+        </button>
+      </div>
+
+      <!-- ALERTS -->
+      <div id="main-alert" class="alert-box"></div>
+
+      <!-- TABLE -->
+      <div class="table-container">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Görsel</th>
+              <th>Başlık</th>
+              <th>Kategori</th>
+              <th>Fiyat & İndirim</th>
+              <th>Durum</th>
+              <th>İşlemler</th>
+            </tr>
+          </thead>
+          <tbody id="products-table-body">
+            <tr>
+              <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 30px;">
+                Yükleniyor...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- ================= ADD / EDIT PRODUCT MODAL ================= -->
+  <div class="modal" id="product-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-form-title">Yeni Hizmet / Ürün Ekle</h3>
+        <button type="button" class="close-btn close-product-modal">&times;</button>
+      </div>
+
+      <div id="modal-alert" class="alert-box alert-danger"></div>
+
+      <form id="product-form">
+        <input type="hidden" id="product-id">
+
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label for="p-title-select">Başlık *</label>
+            <select id="p-title-select" class="form-input" required>
+              <option value="__new__">➕ Yeni Hizmet / Ürün Başlığı Yaz...</option>
+            </select>
+            <input type="text" id="p-title-custom" class="form-input" placeholder="Örn: Modern Ahşap TV Ünitesi" style="display: none; margin-top: 8px;">
+          </div>
+
+          <div class="form-group">
+            <label for="p-category">Kategori *</label>
+            <select id="p-category" class="form-input" required>
+              <option value="tv-unitesi">TV Ünitesi</option>
+              <option value="led-tavan">LED Tavan</option>
+              <option value="asma-tavan">Asma Tavan</option>
+              <option value="ic-cephe-boya">İç Cephe Boya</option>
+              <option value="dis-cephe-boya">Dış Cephe Boya</option>
+              <option value="3d-duvar">3D Duvar</option>
+              <option value="anahtar-teslim">Anahtar Teslim</option>
+              <option value="ofis">Ofis</option>
+              <option value="__new__">➕ Yeni Kategori Yaz / Ekle...</option>
+            </select>
+            <input type="text" id="p-custom-category" class="form-input" placeholder="Yeni kategori adını yazın (örn: Bahçe Dekorasyonu)" style="display: none; margin-top: 8px;">
+          </div>
+
+          <div class="form-group">
+            <label for="p-status">Durum</label>
+            <select id="p-status" class="form-input">
+              <option value="1">Aktif (Yayında)</option>
+              <option value="0">Pasif (Gizli)</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="p-desc">Açıklama</label>
+            <textarea id="p-desc" class="form-input" rows="3" placeholder="Ürün veya hizmet detay açıklaması..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="p-price">Normal Fiyat (TL) *</label>
+            <input type="number" id="p-price" class="form-input" placeholder="Örn: 10000" min="0" step="1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="p-discount-rate">İndirim Oranı (%)</label>
+            <input type="number" id="p-discount-rate" class="form-input" placeholder="Örn: 10" min="0" max="100">
+          </div>
+
+          <div class="form-group">
+            <label for="p-discount-price">İndirimli Fiyat (TL)</label>
+            <input type="number" id="p-discount-price" class="form-input" placeholder="Otomatik hesaplanır veya yazın" min="0" step="1">
+          </div>
+
+          <div class="form-group full-width" style="background: rgba(201, 166, 107, 0.05); border: 1px dashed rgba(201, 166, 107, 0.3); padding: 12px; border-radius: 10px;">
+            <label for="p-service-image-url" style="color: #dac9a6; font-weight: 600;"><i class="fas fa-image"></i> Hizmet Kapak Fotoğrafı (Ana Sayfadaki Kart İçin)</label>
+            <input type="text" id="p-service-image-url" class="form-input" placeholder="images/resim1.jpg veya /uploads/..." style="margin-bottom: 8px;">
+            <label style="font-size: 0.8rem; color: #888;">Veya Bilgisayardan Hizmet Kapak Görseli Yükle</label>
+            <input type="file" id="p-service-file-input" class="form-input" accept="image/*" style="padding: 6px;">
+            <div id="service-upload-status" style="font-size: 0.85rem; color: #2ecc71; margin-top: 4px;"></div>
+            <img id="service-image-preview" src="" alt="Hizmet Kapak Önizleme" style="max-height: 100px; border-radius: 6px; margin-top: 6px; display: none;">
+          </div>
+
+          <div class="form-group full-width" style="background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); padding: 12px; border-radius: 10px;">
+            <label for="p-image-url" style="color: #fff; font-weight: 600;"><i class="fas fa-camera"></i> Ürün / Detay Fotoğrafı (Kategori Sayfası & Detay Modal İçin)</label>
+            <input type="text" id="p-image-url" class="form-input" placeholder="images/tv1.jpg veya /uploads/..." style="margin-bottom: 8px;">
+            <label style="font-size: 0.8rem; color: #888;">Veya Bilgisayardan Ürün Görseli Yükle</label>
+            <input type="file" id="p-file-input" class="form-input" accept="image/*" style="padding: 6px;">
+            <div id="upload-status" style="font-size: 0.85rem; color: #2ecc71; margin-top: 4px;"></div>
+            <img id="image-preview" class="image-preview" src="" alt="Ürün Önizleme" style="max-height: 100px; border-radius: 6px; margin-top: 6px; display: none;">
+          </div>
+        </div>
+
+        <div style="margin-top: 25px; display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn-icon close-product-modal" style="width: auto; padding: 10px 20px;">İptal</button>
+          <button type="submit" id="save-product-btn" class="btn-primary" style="width: auto; padding: 10px 25px;">
+            <i class="fas fa-save"></i> Kaydet
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= CHANGE PASSWORD MODAL ================= -->
+  <div class="modal" id="password-modal">
+    <div class="modal-content" style="max-width: 450px;">
+      <div class="modal-header">
+        <h3>Şifre Değiştir</h3>
+        <button class="close-btn" class="close-pw-modal">&times;</button>
+      </div>
+
+      <div id="pw-alert" class="alert-box"></div>
+
+      <form id="password-form">
+        <div class="form-group">
+          <label for="current-password">Mevcut Şifre *</label>
+          <input type="password" id="current-password" class="form-input" required>
+        </div>
+
+        <div class="form-group">
+          <label for="new-password">Yeni Şifre * (En az 6 karakter)</label>
+          <input type="password" id="new-password" class="form-input" required minlength="6">
+        </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Yeni Şifre Tekrar *</label>
+          <input type="password" id="confirm-password" class="form-input" required minlength="6">
+        </div>
+
+        <div style="margin-top: 25px; display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn-icon close-pw-modal" style="width: auto; padding: 10px 20px;">İptal</button>
+          <button type="submit" class="btn-primary" style="width: auto; padding: 10px 25px;">
+            <i class="fas fa-key"></i> Şifreyi Güncelle
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

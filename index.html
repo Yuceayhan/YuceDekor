@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projelerimiz - Yüce Dekor</title>
+    <link rel="stylesheet" href="stylee.css" />
+    <script>
+      // Sayfa yüklenirken beyaz ekran patlamasını (flash) önlemek için hızlı kontrol
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/logo3.png" class="logo" alt="logo" />
+        </a>
+        <a href="index.html">
+          <span class="brand-name">YÜCE DEKOR</span>
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="index.html#Hizmetler">Hizmetler</a></li>
+        <li><a href="index.html#AYRICALIKLARIMIZ">Hakkında</a></li>
+        <li><a href="projeler.html">Projeler</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+
+      <!-- Sağ Bölüm: Gece Modu & Hamburger -->
+      <div class="nav-right">
+        <a
+          href="admin/index.html"
+          class="admin-nav-link"
+          title="Admin Girişi"
+          aria-label="Admin Girişi"
+        >
+          <i class="fas fa-lock"></i>
+        </a>
+
+        <button
+          class="theme-toggle-btn"
+          id="theme-toggle"
+          aria-label="Gece Modu"
+        >
+          <!-- Sun Icon (Güneş - Karanlık Modda Gösterilir) -->
+          <svg
+            class="sun-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+            />
+          </svg>
+          <!-- Moon Icon (Ay - Aydınlık Modda Gösterilir) -->
+          <svg
+            class="moon-icon"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SLIDER -->
+    <section class="hero-slider">
+      <div
+        class="slide active"
+        style="
+          background-image: url(&quot;https://images.unsplash.com/photo-1600585154340-be6161a56a0c&quot;);
+        "
+      >
+        <div class="overlay"></div>
+        <div class="hero-text">
+          <h1>Modern Yaşam Alanları</h1>
+          <p>Hayalinizdeki dekorasyonu birlikte tasarlıyoruz</p>
+        </div>
+      </div>
+
+      <div
+        class="slide"
+        style="
+          background-image: url(&quot;https://images.unsplash.com/photo-1600566752355-35792bedcfea&quot;);
+        "
+      >
+        <div class="overlay"></div>
+        <div class="hero-text">
+          <h1>Usta İşçilik</h1>
+          <p>Kaliteli malzeme ve profesyonel ekip</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url(images/dekorasyon3.jpg)">
+        <div class="overlay"></div>
+        <div class="hero-text">
+          <h1>Estetik Tasarım</h1>
+          <p>Her detayda şıklık ve modernlik</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="Hizmetler" class="services-section">
+      <div class="container">
+        <div class="section-header center-text">
+          <span class="subtitle">ZANAAT VE ESTETİK</span>
+          <h2 class="main-title">Hizmetlerimiz</h2>
+          <p class="section-description">
+            Cizre'nin köklü zanaat kültürünü modern mimari dokunuşlarla
+            birleştiriyoruz. Yaşam alanlarını baştan sona dönüştüren profesyonel
+            çözümlerimizle tanışın.
+          </p>
+        </div>
+
+        <div class="services-grid" id="services-grid">
+          <!-- Kart 1: TV Ünitesi -->
+          <a href="tvunitesi.html">
+            <div class="service-card">
+              <img src="images/resim1.jpg" alt="TV Ünitesi Tasarımı" />
+
+              <div class="service-content">
+                <div class="service-icon">📺</div>
+                <h2>TV Ünitesi Tasarımı</h2>
+                <h5>
+                  Fonksiyonelliği estetikle buluşturan, odaya özel TV ünitesi ve
+                  medya duvarı.
+                </h5>
+              </div>
+            </div>
+          </a>
+
+          <!-- Kart 2: LED Tavan Uygulamaları -->
+          <a href="ledtavan.html">
+            <div class="service-card">
+              <img src="images/ledtavan.jpg" alt="LED Tavan Uygulamaları" />
+              <div class="service-content">
+                <div class="service-icon">💡</div>
+                <h2>LED Tavan Uygulamaları</h2>
+                <h5>
+                  Modern aydınlatma teknolojileriyle mekanınıza derinlik katan
+                  asma tavan tasarımları.
+                </h5>
+              </div>
+            </div>
+          </a>
+
+          <!-- Kart 3: Asma Tavan Sistemleri -->
+          <a href="asmatavan.html">
+            <div class="service-card">
+              <img src="images/asmatavan.jpg" alt="Asma Tavan Sistemleri" />
+              <div class="service-content">
+                <div class="service-icon">✨</div>
+                <h2>Asma Tavan Sistemleri</h2>
+                <h5>
+                  Alçıpan ve metal sistemlerle tavanlarda kusursuz bitiş ve
+                  izolasyon.
+                </h5>
+              </div>
+            </div>
+          </a>
+
+          <!-- Kart 4: İç ve Dış Cephe Boya -->
+          <a href="iccphboya.html">
+            <div class="service-card">
+              <img src="images/içcephe.jpg" alt="İç ve Dış Cephe Boya" />
+              <div class="service-content">
+                <div class="service-icon">🖌️</div>
+                <h2>İç Cephe Boya</h2>
+                <h5>
+                  Premium boya markaları ve profesyonel işçilikle dayanıklı ve
+                  şık yüzeyler.
+                </h5>
+              </div>
+            </div>
+          </a>
+
+          <!-- Kart 5: Dış Cephe Boya -->
+
+          <a href="dıscphbya.html">
+            <div class="service-card">
+              <img src="images/dıscephe.jpg" alt="İç ve Dış Cephe Boya" />
+              <div class="service-content">
+                <div class="service-icon">🖌️</div>
+                <h2>Dış Cephe Boya</h2>
+                <h5>
+                  Premium boya markaları ve profesyonel işçilikle dayanıklı ve
+                  şık yüzeyler.
+                </h5>
+              </div>
+            </div>
+          </a>
+
+          <!-- Kart 5: Duvar Dekorasyonu -->
+          <a href="3dvrdekorsyn.html">
+            <div class="service-card">
+              <img src="images/duvarkagıdı.jpg" alt="Duvar Dekorasyonu" />
+              <div class="service-content">
+                <div class="service-icon">📐</div>
+                <h2>3D Duvar Dekorasyonu</h2>
+                <h5>
+                  Çıtalama, duvar kağıdı ve özel panel uygulamalarıyla
+                  karakteristik duvarlar.
+                </h5>
+              </div>
+            </div>
+          </a>
+
+          <!-- Kart 6: Anahtar Teslim Tadilat -->
+          <a href="anhtatteslim.html">
+            <div class="service-card">
+              <img
+                src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800"
+                alt="Anahtar Teslim Tadilat"
+              />
+              <div class="service-content">
+                <div class="service-icon">🗝️</div>
+                <h2>Anahtar Teslim Tadilat</h2>
+                <h5>
+                  A'dan Z'ye ev yenileme projelerinde tek elden profesyonel
+                  yönetim.
+                </h5>
+              </div>
+            </div>
+          </a>
+
+          <!-- Kart 7: Ofis Dekorasyonu -->
+          <a href="ofisdekorsyon.html">
+            <div class="service-card">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800"
+                alt="Ofis Dekorasyonu"
+              />
+              <div class="service-content">
+                <div class="service-icon">🏢</div>
+                <h2>Ofis Dekorasyonu</h2>
+                <h5>
+                  Verimliliği artıran, kurumsal kimliğinizi yansıtan modern ofis
+                  alanları.
+                </h5>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- İndirimli Ürünler ve Özel Fırsatlar Bölümü (Dinamik) -->
+    <section
+      id="discounts-section"
+      class="discounts-section"
+      style="display: none"
+    >
+      <div class="container">
+        <div class="section-header center-text">
+          <span class="subtitle">ÖZEL FIRSATLAR</span>
+          <h2 class="main-title">🔥 İndirimli Ürünlerimiz</h2>
+          <p class="section-description">
+            Kısıtlı süre için geçerli indirimli hizmet ve tasarımlarımızı
+            kaçırmayın.
+          </p>
+        </div>
+        <div id="discounts-grid" class="products discounts-grid"></div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="AYRICALIKLARIMIZ" class="services-section">
+      <div class="features-header">
+        <span class="subtitle">AYRICALIKLARIMIZ</span>
+        <h2>Neden Yüce Dekor?</h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-number">01</div>
+          <div class="icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 3h12l4 6-10 13L2 9Z" />
+              <path d="M11 3v21" />
+              <path d="M2 9h20" />
+            </svg>
+          </div>
+          <h3>Premium Malzeme</h3>
+          <p>
+            En yüksek kalite standartlarında seçilmiş malzemelerle uzun ömürlü
+            tasarımlar sunuyoruz.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">02</div>
+          <div class="icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <h3>Zamanında Teslim</h3>
+          <p>
+            Planlanan tüm projeleri eksiksiz ve tam zamanında teslim ederek
+            güven sağlıyoruz.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">03</div>
+          <div class="icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3>Profesyonel Ekip</h3>
+          <p>
+            Alanında uzman mimar ve ustalarla her projeyi titizlikle hayata
+            geçiriyoruz.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">04</div>
+          <div class="icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+              <path d="m15 5 4 4" />
+            </svg>
+          </div>
+          <h3>Özel Tasarım</h3>
+          <p>
+            Her mekâna özgü, tamamen size özel modern ve estetik çözümler
+            üretiyoruz.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">05</div>
+          <div class="icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+              />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+            </svg>
+          </div>
+          <h3>3D Görselleştirme</h3>
+          <p>
+            Projeyi başlamadan önce gerçeğe en yakın şekilde görmenizi
+            sağlıyoruz.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-number">06</div>
+          <div class="icon-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </div>
+          <h3>Garanti & Güven</h3>
+          <p>
+            Tüm işlerimizde satış sonrası destek ve uzun vadeli güvence
+            sunuyoruz.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bottom-cta center-text">
+      <div class="container">
+        <h2 class="main-title">HAYALİNİZDEKİ MEKANI BİRLİKTE TASARLAYALIM</h2>
+
+        <a href="iletisim.html" class="btn-gold" id="btn-call-us"
+          >BİZİ ARAYIN</a
+        >
+      </div>
+    </section>
+
+    <!-- SLIDER JS -->
+    <script>
+      // 1. YENİ EKLENEN HAMBURGER MENÜ KODLARI
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          navLinks.classList.toggle("active");
+        });
+
+        // Mobilde menü linkine tıklandığında menüyü otomatik kapat
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+          });
+        });
+      }
+
+      // 3. GECE MODU (DARK MODE) ETKİLEŞİMİ
+      const themeToggle = document.getElementById("theme-toggle");
+
+      themeToggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark-mode");
+
+        // Tercihi localStorage'a kaydet
+        if (document.documentElement.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark");
+        } else {
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // 2. SENDE ZATEN OLAN SLIDER KODLARI
+      const slides = document.querySelectorAll(".slide");
+      let current = 0;
+
+      function showSlide(index) {
+        slides.forEach((s) => s.classList.remove("active"));
+        slides[index].classList.add("active");
+      }
+
+      setInterval(() => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }, 3000);
+    </script>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>
+          &copy; <span id="current-year">2026</span> Yüce Dekor. Tüm Hakları
+          Saklıdır.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
+
+    <!-- Hizmet / Ürün Detay Modal (Açılır Pencere) -->
+    <div id="detail-modal" class="detail-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-grid">
+          <div class="modal-left">
+            <img id="modal-img" src="" alt="Hizmet Resmi" />
+          </div>
+          <div class="modal-right">
+            <div>
+              <h2 id="modal-title">Hizmet Başlığı</h2>
+              <p id="modal-desc">Hizmet açıklaması buraya gelecek.</p>
+              <div id="modal-price-container"></div>
+
+              <div class="specs-section">
+                <h3>UYGULAMA BİLGİLERİ</h3>
+                <table class="specs-table">
+                  <tr id="spec-row-1">
+                    <td class="spec-label">Uygulama Alanı</td>
+                    <td class="spec-value" id="modal-spec-area">-</td>
+                  </tr>
+                  <tr id="spec-row-2">
+                    <td class="spec-label">Kullanılan Malzeme</td>
+                    <td class="spec-value" id="modal-spec-material">-</td>
+                  </tr>
+                  <tr id="spec-row-3">
+                    <td class="spec-label">Uygulama Süresi</td>
+                    <td class="spec-value" id="modal-spec-duration">-</td>
+                  </tr>
+                  <tr id="spec-row-4">
+                    <td class="spec-label">İşçilik Garantisi</td>
+                    <td class="spec-value" id="modal-spec-warranty">-</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <a
+              id="modal-whatsapp-btn"
+              href="#"
+              target="_blank"
+              class="modal-whatsapp-btn"
+            >
+              <i class="fab fa-whatsapp"></i> WhatsApp ile Detaylı Bilgi Al
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Social Media Bar (Sabit Sosyal Medya Butonları) -->
+    <div class="floating-socials">
+      <a
+        href="https://www.instagram.com/yucedekor73cizre/"
+        target="_blank"
+        class="floating-item instagram"
+        aria-label="Instagram"
+      >
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a
+        href="https://wa.me/905449009495?text=Merhaba%20bilgi%20almak%20istiyorum."
+        target="_blank"
+        class="floating-item whatsapp"
+        aria-label="WhatsApp"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a
+        href="tel:+905449009495"
+        class="floating-item phone"
+        aria-label="Telefon"
+      >
+        <i class="fas fa-phone-alt"></i>
+      </a>
+    </div>
+
+    <script src="js/frontend-dynamic.js"></script>
+  </body>
+</html>

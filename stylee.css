@@ -1,0 +1,2352 @@
+/* ==========================================================================
+   YÜCE DEKOR WEB SİTESİ - STİL DOSYASI (style.css)
+   ========================================================================== */
+
+/* 1. GLOBAL AYARLAR VE SIFIRLAMA */
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  background: #f5f1eb;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 100px;
+  width: 100%;
+  padding: 8px 70px;
+  background: rgba(45, 45, 45, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(201, 166, 107, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.logo {
+  height: 50px;
+  transform: scale(2) translateY(5px);
+  transition: all 0.9s ease;
+}
+
+.logo:hover {
+  transform: scale(2.2) translateY(5px);
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+.brand-name {
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin-left: auto; /* Menu linklerini ve gece modu butonunu sağ tarafta yan yana gruplar */
+}
+
+.nav-links a {
+  color: #fff;
+  font-size: 23px;
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #c9a66b;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #c9a66b;
+}
+
+/* =========================
+   HERO SLIDER (YENİ)
+========================= */
+
+.hero-slider {
+  position: relative;
+  height: 55vh;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-text {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  animation: fadeUp 1s ease;
+}
+
+.hero-text h1 {
+  font-size: 52px;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 20px;
+  color: #f0f0f0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* =========================
+   FEATURES SECTION (SENİN KODUN)
+========================= */
+
+.features-section {
+  padding: 60px 20px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.subtitle {
+  color: #8b6f47;
+}
+
+.main-title {
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+/* =========================
+   CTA BÖLÜMÜ
+========================= */
+
+.bottom-cta {
+  padding: 60px 20px;
+}
+
+.btn-gold {
+  display: inline-block;
+  padding: 14px 30px;
+  background: #c9a66b;
+  color: #000;
+  font-weight: 600;
+  margin-top: 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn-gold:hover {
+  background: #a8864e;
+}
+
+/* =========================
+   RESPONSIVE (BASİT)
+========================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    font-size: 12px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+}
+
+/* 4. HİZMETLERİMİZ BÖLÜMÜ */
+.services-section {
+  background-color: #f5f1eb; /* Bölüm arka planı */
+  padding: 100px 0; /* Üst ve alttan geniş boşluk */
+}
+
+.center-text {
+  text-align: center; /* Başlıkları ortalar */
+  margin-bottom: 60px; /* Alttaki içerikle mesafe koyar */
+}
+
+.subtitle {
+  font-size: 13px; /* Küçük üst başlık boyutu */
+  color: #c9a66b; /* Altın rengi */
+  letter-spacing: 3px; /* Harfler arası boşluk */
+  text-transform: uppercase; /* Tüm harfleri büyük yapar */
+  display: block; /* Satırı kaplamasını sağlar */
+  font-weight: 600;
+  margin-bottom: 20px; /* Ana başlıkla arasındaki boşluk */
+}
+
+.main-title {
+  font-size: 42px; /* Bölüm ana başlık boyutu */
+  color: #121212; /* Koyu siyah renk */
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.services-grid {
+  display: grid; /* Izgara sistemi kurar */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(380px, 1fr)
+  ); /* Esnek kolon yapısı */
+  gap: 30px; /* Kartlar arası mesafe */
+}
+
+.service-card {
+  position: relative; /* İçindeki içeriği konumlandırmak için */
+  height: 420px; /* Sabit kart yüksekliği */
+  overflow: hidden; /* Taşmaları gizler (Resim büyümesi için) */
+  border-radius: 4px; /* Köşe yumuşatma */
+  cursor: pointer;
+}
+
+.service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Resmin kartı orantılı kaplamasını sağlar */
+  transition: transform 0.6s ease; /* Resim büyüme hızı */
+}
+
+.service-card:hover img {
+  transform: scale(1.08); /* Üstüne gelince resmi %8 büyütür */
+}
+
+/* 5. NEDEN YÜCE DEKOR? (ÖZELLİKLER) */
+.features-section {
+  background-color: #f5f1eb;
+  padding: 80px 70px; /* Geniş kenar boşlukları */
+  width: 100%;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Yan yana 3 eşit kutu */
+  gap: 30px;
+  max-width: 1300px;
+  margin: 0 auto; /* Izgarayı sayfada ortalar */
+}
+
+.feature-card {
+  background-color: #ffffff; /* Kart arka planı (Beyaz) */
+  color: #2d2d2d; /* Yazı rengi */
+  padding: 40px 35px; /* Kart iç boşluğu */
+  border-radius: 4px;
+  position: relative; /* Numara konumlandırması için */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); /* Çok hafif gölge */
+  display: flex;
+  flex-direction: column; /* İçeriği dikey dizer */
+  justify-content: center;
+  min-height: 280px; /* Minimum yükseklik */
+  border-bottom: 4px solid transparent; /* Hover'da çıkacak çizgi alanı */
+  transition: all 0.4s ease; /* Renk değişim süresi */
+}
+
+.feature-card:hover {
+  background-color: #2d2d2d; /* Üstüne gelince siyah arka plan */
+  color: #ffffff; /* Üstüne gelince beyaz yazı */
+  transform: translateY(-8px); /* Yukarı doğru 8px zıplama efekti */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Gölgeyi derinleştirir */
+  border-bottom: 4px solid #c9a66b; /* Altın rengi şerit görünür */
+}
+
+.feature-shape {
+  width: 45px;
+  height: 55px;
+  background-color: #f5f1eb; /* İkon arkası gri alan */
+  clip-path: polygon(
+    20% 0%,
+    100% 0%,
+    80% 100%,
+    0% 100%
+  ); /* Yamuk şekil kesimi */
+  margin-bottom: 25px;
+  transition: background-color 0.4s ease;
+}
+
+.feature-card:hover .feature-shape {
+  background-color: #c9a66b; /* Kart siyah olunca yamuk şekil altın olur */
+}
+
+.feature-card:hover h3,
+.feature-card:hover p {
+  color: #ffffff !important; /* kartlardaki yazıları daha parlak bir beyaz yapar */
+  opacity: 1;
+}
+
+.feature-number {
+  position: absolute; /* Kartın istediğimiz köşesine koymak için */
+  top: 20px;
+  right: 30px; /* Sağ üst köşe payı */
+  font-size: 60px; /* Büyük arka plan numarası */
+  font-weight: 800;
+  color: #f1f1f1; /* Silik gri renk */
+  transition: color 0.4s ease;
+}
+
+.feature-card:hover .feature-number {
+  color: #3a3a3a; /* Siyah kartta numara koyulaşır (kamufle olur) */
+}
+
+/*==========================================================================
+   6. CTA (EYLEM ÇAĞRISI) 
+   ========================================================================== */
+
+.bottom-cta {
+  background: linear-gradient(135deg, #121212, #2c2c2c, #c9a96e);
+  color: #ffffff !important;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.bottom-cta .container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* CTA başlığı */
+.bottom-cta h2 {
+  color: #ffffff !important; /* Başlığı net beyaz yapar */
+  font-size: 38px; /* Okunabilirliği artırmak için boyut ayarı */
+  font-weight: 500; /* Daha güçlü bir duruş için kalınlık */
+  text-transform: uppercase; /* Görseldeki gibi tüm harfleri büyük yapar */
+  margin-bottom: 20px; /* Alt boşluk */
+  letter-spacing: 0.5px;
+}
+
+/* Hafif parlayan efekt - Tıklamaları ve dokunmaları engellememesi için pointer-events: none */
+.bottom-cta::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(230, 239, 236, 0.08) 0%,
+    transparent 70%
+  );
+  animation: rotateGlow 8s linear infinite;
+  pointer-events: none !important;
+  z-index: 1;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.main-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* hizmetlerimiz altındaki yazı "cizrenin köklü ....*/
+.section-description {
+  font-size: 20px; /* Yazıyı büyütür */
+  color: #555; /* Siyah yerine koyu gri */
+  font-weight: 500; /* Biraz daha belirgin */
+  line-height: 1.5; /* Satır aralığı */
+  max-width: 900px; /* Çok uzamasın */
+  margin: 20px auto 0;
+}
+
+/* Bizi arayın kısmı (Orijinal estetik: transparan cam ve beyaz çerçeve) */
+.btn-gold {
+  display: inline-block;
+  padding: 14px 34px;
+  border-radius: 30px;
+  border: 2px solid #fff;
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  margin-top: 20px;
+  position: relative;
+  z-index: 5;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-gold:hover,
+.btn-gold:active {
+  background: #c9a96e;
+  color: #121212 !important;
+  border-color: #c9a96e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   HİZMETLER BÖLÜMÜ
+   ========================================================================== */
+
+.service-card {
+  position: relative;
+  height: 360px;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+/* IMAGE */
+.service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.4s ease;
+}
+
+/* OVERLAY (TEMİZ VE OKUNAKLI) */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  z-index: 1;
+}
+
+/* CONTENT */
+.service-content {
+  position: absolute;
+  bottom: 0;
+  padding: 22px;
+  z-index: 2;
+  color: #fff;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+/* ICON */
+.service-icon {
+  font-size: 18px;
+  color: #c9a66b;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+/* TITLE */
+.service-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* DESCRIPTION */
+.service-card p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+
+/* =========================
+   HOVER (SADENİN GÜZELİ)
+========================= */
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.service-card:hover img {
+  transform: scale(1.08);
+}
+/* ==========================================================================
+   ÖNCE & SONRA BÖLÜMÜ (MODERNİZE EDİLDİ)
+   ========================================================================== */
+/* --- GENEL ALAN --- */
+.transformation-section {
+  background-color: #f5f1eb; /* Krem arka plan */
+  padding: 100px 40px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-header h2 {
+  font-size: 40px;
+  color: #1a1a1a;
+  font-weight: 800;
+  margin-top: 10px;
+}
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: #c9a66b;
+  margin: 15px auto;
+}
+
+/* --- PORTFOLYO FİLTRE BUTONLARI --- */
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1px solid rgba(201, 166, 107, 0.3);
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  letter-spacing: 0.5px;
+}
+
+.filter-btn:hover {
+  background: #c9a66b;
+  color: #ffffff;
+  border-color: #c9a66b;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(201, 166, 107, 0.25);
+}
+
+.filter-btn.active {
+  background: #1a1a1a;
+  color: #c9a66b;
+  border-color: #1a1a1a;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Izgara Yapısı: Yan yana dizecek şekilde */
+.transformation-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  justify-content: center; /* Tek kalan veya az olan kartları sayfada ortalar */
+}
+
+.ba-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: scale(1);
+  width: 100%;
+  max-width: 480px; /* Kartın aşırı büyüyüp görsellerin bozulmasını önler */
+  margin: 0 auto; /* Kartları kendi sütununda ortalar */
+}
+
+.ba-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+.ba-slider {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+.after-img {
+  z-index: 1;
+  opacity: 1;
+}
+
+.before-img {
+  z-index: 2;
+  opacity: 0;
+}
+
+/* Gösterildiğinde opacity 1 olur */
+.before-img.show {
+  opacity: 1;
+}
+
+/* Şık Kapsayıcı Pill Butonları */
+.ba-toggle-tabs {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  background: rgba(26, 26, 26, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 4px;
+  border-radius: 30px;
+  z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s;
+}
+
+.ba-card:hover .ba-toggle-tabs {
+  background: rgba(26, 26, 26, 0.85);
+  transform: translateX(-50%) scale(1.05);
+}
+
+.ba-tab-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 1px;
+}
+
+.ba-tab-btn:hover {
+  color: #ffffff;
+}
+
+/* Aktif Sekme Butonu: Altın Sarısı Zemin */
+.ba-tab-btn.active {
+  background: #c9a66b;
+  color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(201, 166, 107, 0.3);
+}
+
+.ba-info {
+  padding: 24px;
+  background: #1a1a1a;
+  color: white;
+  border-top: 1px solid rgba(201, 166, 107, 0.15);
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.ba-card:hover .ba-info {
+  background: #222222;
+}
+
+.category-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #c9a66b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ba-info h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.ba-card:hover .ba-info h3 {
+  color: #c9a66b;
+}
+
+.ba-info p {
+  font-size: 14px;
+  color: #b0b0b0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* İLETİŞİM KISMI */
+
+/* ==========================================================================
+   İLETİŞİM SAYFASI STİLLERİ
+   ========================================================================== */
+
+/* Sayfanın genel kapsayıcısı ve boşluk ayarları */
+.contact-page-section {
+  width: 100%;
+
+  padding: 80px 5%; /* Kenarlardan %5 boşluk bırakır, mobil uyuma yardımcı olur */
+}
+
+/* İçeriği ortalayan ve sınırlandıran ana kutu */
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px; /* Sol ve sağ sütun arasındaki boşluk */
+  justify-content: space-between;
+}
+
+/* --- SOL SÜTUN (Bilgiler) --- */
+.contact-info-wrapper {
+  flex: 1; /* Alanın yarısını kaplar */
+}
+
+/* Ana Başlık Tasarımı */
+.title-box h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  border-left: 4px solid #c9a66b; /* Sol taraftaki şık altın sarısı çizgi */
+  color: #222222;
+}
+
+/* Alt Açıklama Metni */
+.contact-desc {
+  color: #555555;
+  font-size: 26px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* İletişim Bilgileri Listesi */
+.contact-details {
+  display: flex;
+  flex-direction: column; /* Alt alta dizer */
+  gap: 35px;
+  margin-bottom: 40px;
+}
+
+.contact-box {
+  display: flex;
+  align-items: center; /* İkon ve metni dikeyde hizalar */
+  gap: 20px;
+}
+
+/* Kare/Hafif Yuvarlak İkon Kutusu */
+.icon-box {
+  width: 85px;
+  height: 85px;
+  background-color: #ffffff;
+  border: 1px solid #e0dacc; /* Krem temaya uygun ince kenarlık */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9a66b;
+  font-size: 42px;
+  border-radius: 8px; /* Köşeleri hafif yumuşatır */
+}
+
+/* İkonun yanındaki yazı alanı */
+.text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 'Telefon', 'E-Posta' gibi üst etiketler */
+.text-box .label {
+  font-size: 23px;
+  color: #777;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Numaralar ve Mail Adresleri */
+.text-box .value {
+  font-size: 26px;
+  color: #222;
+  font-weight: 600;
+  text-decoration: none; /* Linklerin alt çizgisini kaldırır */
+  transition: color 0.3s;
+}
+
+.text-box a.value:hover {
+  color: #c9a66b; /* Üzerine gelince altın sarısı olur */
+}
+
+/* --- SAĞ SÜTUN (Form) --- */
+.contact-form-wrapper {
+  flex: 1; /* Alanın diğer yarısını kaplar */
+  background: #ffffff; /* Temiz görünüm için beyaz arka plan */
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Kutuyu hafif havaya kaldırır */
+}
+
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Form elemanları arasındaki boşluk */
+}
+
+/* Ad ve Telefon gibi elemanları yan yana dizmek için */
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.input-group label {
+  font-size: 20px;
+  color: #777;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Çizgili Form İnputları (Kutu yerine alt çizgili şık tasarım) */
+.custom-form input,
+.custom-form select,
+.custom-form textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #e0dacc;
+  color: #333;
+  padding: 10px 0;
+  font-size: 15px;
+  outline: none; /* Tıklanınca çıkan varsayılan mavi çerçeveyi siler */
+  transition: border-color 0.3s;
+}
+
+/* Tıklanıp yazı yazılırken çizginin altın sarısı olması */
+.custom-form input:focus,
+.custom-form select:focus,
+.custom-form textarea:focus {
+  border-bottom-color: #c9a66b;
+}
+
+/* Gönder Butonu */
+.submit-btn {
+  align-self: flex-start; /* Sadece kendi içeriği kadar yer kaplar, uzamaz */
+  background: #383838; /* Antrasit gri */
+  color: #ffffff;
+  border: none;
+  padding: 15px 35px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: #c9a66b;
+  transform: translateY(-2px); /* Tıklama hissi vermek için hafif yükselir */
+}
+
+/* --- HARİTA BÖLÜMÜ --- */
+.map-section {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+.map-section iframe {
+  opacity: 0.9; /* Haritayı sitenin açık temasına daha iyi yedirir */
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Harita üzerindeki bilgi kartı kapsayıcısı */
+.map-overlay {
+  position: absolute;
+  inset: 0; /* top:0, bottom:0, left:0, right:0 anlamına gelir, kodu kısaltır */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Fare etkileşimlerini alttaki haritaya geçirir */
+}
+
+/* Harita Üzerindeki Beyaz Kart */
+.map-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 40px;
+  text-align: center;
+  color: #222;
+  pointer-events: auto; /* Butona tıklanabilmesi için etkileşimi açar */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.map-card i {
+  font-size: 30px;
+  color: #c9a66b;
+  margin-bottom: 15px;
+}
+
+.map-card h3 {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.map-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* Yol Tarifi Al Butonu */
+.btn-directions {
+  display: inline-block;
+  border: 2px solid #383838;
+  padding: 10px 25px;
+  font-size: 13px;
+  color: #383838;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.btn-directions:hover {
+  background: #383838;
+  color: #fff;
+}
+
+/* --- SOSYAL MEDYA BÖLÜMÜ --- */
+
+.social-follow-section {
+  background: #383838;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.social-follow-section h2 {
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.social-links-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* SOSYAL MEDYA KARTLARI */
+.social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  text-decoration: none;
+
+  transition: all 0.35s ease;
+
+  padding: 18px 20px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(8px);
+}
+
+/* İKONLAR */
+.social-item i {
+  font-size: 54px;
+  transition: all 0.35s ease;
+}
+
+/* YAZILAR */
+.social-item span {
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* HOVER EFEKTİ */
+.social-item:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ==========================================================
+   GERÇEK SOSYAL MEDYA RENKLERİ
+   ========================================================== */
+
+/* INSTAGRAM */
+.social-item.instagram i {
+  color: #e4405f;
+}
+
+.social-item.instagram:hover {
+  box-shadow: 0 10px 30px rgba(228, 64, 95, 0.35);
+}
+
+/* FACEBOOK */
+.social-item.facebook i {
+  color: #1877f2;
+}
+
+.social-item.facebook:hover {
+  box-shadow: 0 10px 30px rgba(24, 119, 242, 0.35);
+}
+
+/* WHATSAPP */
+.social-item.whatsapp i {
+  color: #25d366;
+}
+
+.social-item.whatsapp:hover {
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+}
+
+/* HOVER'DA İKON BÜYÜSÜN */
+.social-item:hover i {
+  transform: scale(1.15);
+}
+
+/* ==========================================================================
+   HİZMET / NEDEN YUCE DEKOR KARTLARI TASARIMI
+   ========================================================================== */
+
+/* =========================
+   GENEL BÖLÜM (FEATURES ALANI)
+   Sayfanın tüm "Neden Biz?" bölümünü kapsar
+========================= */
+.features-section {
+  padding: 100px 70px; /* İç boşluk: üst-alt 100px, sağ-sol 70px */
+  background: linear-gradient(
+    135deg,
+    #f5f1eb,
+    #ffffff
+  ); /* Kremden beyaza geçişli arka plan */
+}
+
+/* =========================
+   BAŞLIK ALANI (HEADER)
+   Üstteki "Neden Yüce Dekor?" kısmı
+========================= */
+.features-header {
+  text-align: center; /* Yazıları ortalar */
+  margin-bottom: 60px; /* Alt içerikten boşluk bırakır */
+}
+
+/* Küçük üst başlık (AYRICALIKLARIMIZ) */
+.features-header .subtitle {
+  color: #c9a66b; /* Altın renk */
+  letter-spacing: 3px; /* Harf arası boşluk */
+  font-size: 15px; /* Küçük yazı boyutu */
+  font-weight: 700; /* Kalın yazı */
+  text-transform: uppercase; /* Büyük harf yapar */
+}
+
+/* Ana başlık (Neden Yüce Dekor?) */
+.features-header h2 {
+  font-size: 40px; /* Büyük başlık */
+  margin-top: 10px; /* Üst boşluk */
+  color: #1a1a1a; /* Koyu siyah */
+  font-weight: 800; /* Çok kalın */
+}
+
+/* Altın çizgi (başlık altındaki dekor çizgi) */
+.gold-line {
+  width: 70px; /* Çizgi genişliği */
+  height: 3px; /* Çizgi kalınlığı */
+  background: #c9a66b; /* Altın renk */
+  margin: 15px auto; /* Ortalar */
+}
+
+/* =========================
+   KARTLARIN YERLEŞİMİ (GRID)
+   Kartları otomatik yan yana dizer
+========================= */
+.features-grid {
+  display: grid; /* Grid sistemi */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(360px, 1fr)
+  ); /* Responsive kolon yapısı */
+  gap: 40px; /* Kartlar arası boşluk */
+}
+
+/* =========================
+   KART TASARIMI
+   Her bir feature kutusu
+========================= */
+.feature-card {
+  background: rgba(255, 255, 255, 0.75); /* Yarı saydam beyaz */
+  backdrop-filter: blur(12px); /* Cam efekti */
+  border: 1px solid rgba(201, 166, 107, 0.15); /* İnce altın çerçeve */
+  padding: 35px 30px; /* İç boşluk */
+  border-radius: 14px; /* Köşe yuvarlama */
+  text-align: left; /* Yazılar sola hizalı */
+  position: relative; /* İçindeki numara için gerekli */
+  overflow: hidden; /* Taşmaları gizler */
+  transition: all 0.4s ease; /* Hover animasyonu */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Hafif gölge */
+}
+
+/* =========================
+   HOVER PARLAKLIK EFEKTİ
+   Kart üstüne gelince ışık yayılır
+========================= */
+.feature-card::before {
+  content: ""; /* Boş efekt katmanı */
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 166, 107, 0.2),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: 0.4s;
+}
+
+/* Hover olunca efekt görünür */
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Kart hover animasyonu */
+.feature-card:hover {
+  transform: translateY(-10px); /* Yukarı kalkar */
+  border-color: #c9a66b; /* Çerçeve altın olur */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); /* Daha güçlü gölge */
+}
+
+/* =========================
+   NUMARA ALANI (01, 02, 03...)
+   Kartın sağ üst köşesindeki sayı
+========================= */
+.feature-number {
+  position: absolute; /* Kart içinde sabit konum */
+  top: 18px;
+  right: 18px;
+  font-size: 48px; /* Büyük numara */
+  font-weight: 900; /* Çok kalın */
+  color: rgba(0, 0, 0, 0.06); /* Soluk arka plan numarası */
+  user-select: none; /* Seçilemez yapar */
+  transition: all 0.4s ease;
+}
+
+/* Hover olunca numara biraz belirginleşir */
+.feature-card:hover .feature-number {
+  color: rgba(201, 166, 107, 0.15);
+  transform: scale(1.1);
+}
+
+/* =========================
+   İKON KUTUSU
+   Kart içindeki simge alanı
+========================= */
+.icon-wrapper {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  background: rgb(161, 114, 48); /* Siyah arka plan */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #c9a66b; /* Altın ikon */
+  font-size: 20px;
+  transition: 0.4s;
+}
+
+/* Hover olunca ikon renk değiştirir */
+.feature-card:hover .icon-wrapper {
+  background: #c9a66b;
+  color: #1a1a1a;
+  transform: rotate(5deg) scale(1.05);
+}
+
+/* =========================
+   BAŞLIK (KART İÇİ)
+========================= */
+.feature-card h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+/* =========================
+   AÇIKLAMA METNİ
+========================= */
+.feature-card p {
+  font-size: 18px;
+  line-height: 1.6; /* Satır aralığı */
+  color: #555; /* Gri yazı */
+}
+
+/* Mobil uyum içinn */
+/* =========================
+   📱 MOBİL UYUMLULUK (GENEL)
+========================= */
+
+@media (max-width: 768px) {
+  /* NAVBAR */
+  .navbar {
+    flex-direction: row;
+    height: 80px;
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand {
+    gap: 12px;
+    justify-content: flex-start;
+  }
+
+  .logo {
+    height: 40px;
+    transform: scale(1.2) translateY(0);
+  }
+  
+  .logo:hover {
+    transform: scale(1.2);
+  }
+
+  .brand-name {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  /* HERO */
+  .hero-slider {
+    height: 60vh;
+  }
+
+  .hero-text h1 {
+    font-size: 24px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  /* FEATURES */
+  .features-section {
+    padding: 50px 15px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr; /* TEK SÜTUN */
+    gap: 15px;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  /* CTA MOBİL */
+  .bottom-cta {
+    padding: 50px 15px 65px 15px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottom-cta .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .bottom-cta::before {
+    pointer-events: none !important;
+  }
+
+  .bottom-cta h2 {
+    font-size: 24px !important;
+    line-height: 1.35;
+    margin-bottom: 20px;
+    padding: 0 5px;
+  }
+
+  .btn-gold {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-width: 200px;
+    padding: 14px 30px;
+    font-size: 15px;
+    margin: 10px auto 0 auto;
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* HİZMET KARTLARI */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    height: 300px;
+    margin: 10px 0;
+  }
+
+  /* ÖNCE & SONRA BÖLÜMÜ MOBİL */
+  .transformation-section {
+    padding: 60px 15px !important;
+  }
+
+  .portfolio-filters {
+    gap: 8px;
+    margin-bottom: 25px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 10px 5px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .portfolio-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    padding: 10px 18px;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .transformation-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .ba-slider {
+    height: 280px;
+  }
+
+  .ba-badge {
+    top: 15px;
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+
+  .before-badge {
+    left: 15px;
+  }
+
+  .after-badge {
+    right: 15px;
+  }
+
+  .ba-info {
+    padding: 20px;
+  }
+
+  .ba-info h3 {
+    font-size: 19px;
+  }
+
+  /* CONTACT */
+  .contact-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-form-wrapper {
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  /* MAP */
+  .map-section {
+    height: 300px;
+  }
+
+  /* SOCIAL */
+  .social-links-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* mobil uyumluluk için hamburger menü */
+
+/* --- HAMBURGER MENÜ STİLLERİ --- */
+
+/* Masaüstünde ikonu gizle */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+
+  z-index: 9999 !important; /* Her zaman en üstte kalması için */
+}
+
+/* İkonun çizgileri */
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff; /* Eğer yazılar altın rengiyse bunu goldenrod yapabilirsin */
+  transition: all 0.3s ease;
+}
+
+/* --- MOBİL UYUM (RESPONSIVE) --- */
+@media (max-width: 768px) {
+  /* Hamburger ikonunu mobilde görünür yap */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Menü çubuğunun arka planını ve hizalamasını düzelt */
+  .navbar {
+    background-color: rgba(
+      25,
+      25,
+      25,
+      0.98
+    ) !important; /* Resimlerle yazıların birbirine girmesini engeller */
+    padding: 15px 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Linkleri yan yanadan alt altaya geçir ve ekran dışına sakla */
+  .nav-links {
+    position: absolute;
+    top: 100%; /* Navbar'ın hemen bitiminden başlar */
+    left: -100%; /* Ekranın solunda saklanır */
+    flex-direction: column;
+    background-color: rgba(25, 25, 25, 0.98);
+    width: 100%;
+    text-align: center;
+    transition: 0.4s ease-in-out;
+    padding: 20px 0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  /* JavaScript ile menü açıldığında devreye girecek class */
+  .nav-links.active {
+    left: 0;
+  }
+
+  /* Mobilde linklerin aralıkları */
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  /* Tıklandığında hamburger ikonunun çarpıya (X) dönüşme animasyonu */
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Footer mobilde yüzen sosyal butonların altında kalmaması için alt boşluk */
+  .site-footer {
+    padding: 30px 15px 95px 15px;
+  }
+
+  /* Form elemanları mobilde iOS otomatik yakınlaştırmasını önlemek için min 16px */
+  .custom-form input,
+  .custom-form select,
+  .custom-form textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Küçük Ekranlar (Telefonlar <= 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .logo {
+    height: 36px;
+    transform: scale(1.1) translateY(0);
+  }
+
+  .brand-name {
+    font-size: 17px;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-right {
+    gap: 8px;
+  }
+
+  .theme-toggle-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .admin-nav-link {
+    width: 26px;
+    height: 26px;
+  }
+
+  .hero-text h1 {
+    font-size: 20px;
+  }
+
+  .hero-text p {
+    font-size: 13px;
+  }
+
+  .title-box h2 {
+    font-size: 24px;
+  }
+
+  .modal-right {
+    padding: 20px 15px;
+  }
+}
+
+/* =========================================
+   FOOTER (ALT BİLGİ) STİLLERİ
+========================================= */
+.site-footer {
+  background-color: #111; /* Sitenin temasına uygun koyu arka plan */
+  color: #ccc;
+  text-align: center;
+  padding: 25px 20px;
+  margin-top: 60px;
+  border-top: 2px solid goldenrod; /* Üst kısımdaki şık altın sarısı çizgi */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Sosyal Medya İkonları */
+.footer-socials a {
+  color: goldenrod;
+  font-size: 22px;
+  margin: 0 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.iletisim-gecin-btn {
+  background-color: goldenrod;
+  color: white;
+  /* ... senin yazdığın diğer kodlar ... */
+
+  /* Ekleyeceğin kısım: */
+  position: relative;
+  z-index: 999;
+}
+
+/* ==========================================================================
+   GECE MODU (DARK MODE) STİLLERİ
+   ========================================================================== */
+
+/* Tema Butonu & Sağ Bölüm Kapsayıcısı */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 30px; /* "İletişim" linki ile buton arasında şık bir boşluk bırakır */
+}
+
+/* Göze Batmayan Küçük Admin Giriş İkonu */
+.admin-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  opacity: 0.65;
+}
+
+.admin-nav-link:hover {
+  color: #c9a66b;
+  border-color: rgba(201, 166, 107, 0.4);
+  background: rgba(201, 166, 107, 0.1);
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(201, 166, 107, 0.3);
+  color: #c9a66b;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  outline: none;
+}
+
+.theme-toggle-btn:hover {
+  background: #c9a66b;
+  color: #121212;
+  border-color: #c9a66b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(201, 166, 107, 0.3);
+}
+
+.theme-toggle-btn svg {
+  transition: transform 0.4s ease;
+}
+
+.theme-toggle-btn:hover svg {
+  transform: rotate(25deg) scale(1.05);
+}
+
+/* Güneş ve Ay İkonlarının Görünümü */
+/* Aydınlık modda: sun gizlenir, moon gösterilir */
+html:not(.dark-mode) .theme-toggle-btn .sun-icon {
+  display: none;
+}
+
+/* Karanlık modda: moon gizlenir, sun gösterilir */
+html.dark-mode .theme-toggle-btn .moon-icon {
+  display: none;
+}
+
+/* --- KARANLIK MOD RENK DEĞİŞİKLİKLERİ --- */
+html.dark-mode body {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Projeler Bölümü */
+html.dark-mode .transformation-section {
+  background-color: #121212;
+}
+
+html.dark-mode .section-header h2 {
+  color: #ffffff;
+}
+
+/* Filtre Butonları */
+html.dark-mode .filter-btn {
+  background: #1e1e1e;
+  color: #ffffff;
+  border-color: rgba(201, 166, 107, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+html.dark-mode .filter-btn:hover {
+  background: #c9a66b;
+  color: #121212;
+  border-color: #c9a66b;
+  box-shadow: 0 8px 20px rgba(201, 166, 107, 0.4);
+}
+
+html.dark-mode .filter-btn.active {
+  background: #c9a66b;
+  color: #121212;
+  border-color: #c9a66b;
+  box-shadow: 0 8px 20px rgba(201, 166, 107, 0.35);
+}
+
+/* Proje Kartları */
+html.dark-mode .ba-card {
+  background: #1e1e1e;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode .ba-info {
+  background: #181818;
+  border-top-color: rgba(201, 166, 107, 0.1);
+}
+
+html.dark-mode .ba-card:hover .ba-info {
+  background: #222222;
+}
+
+html.dark-mode .ba-info h3 {
+  color: #ffffff;
+}
+
+html.dark-mode .ba-info p {
+  color: #aaaaaa;
+}
+
+/* Rozetler */
+html.dark-mode .before-badge {
+  background: rgba(18, 18, 18, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobil Uyumlu Buton Hizalaması */
+@media (max-width: 768px) {
+  .nav-right {
+    gap: 12px;
+    margin-left: 0; /* Mobilde sol boşluğu sıfırlayalım */
+  }
+  .theme-toggle-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .admin-nav-link {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+}
+
+/* ==========================================================================
+   GENEL SAYFALAR KARANLIK MOD UYUMLULUĞU
+   ========================================================================== */
+html.dark-mode .services-section {
+  background-color: #121212;
+}
+
+html.dark-mode .main-title {
+  color: #ffffff;
+}
+
+html.dark-mode .section-description {
+  color: #aaaaaa;
+}
+
+/* Neden Biz (Features) */
+html.dark-mode .features-section {
+  background: linear-gradient(135deg, #121212, #181818);
+}
+
+html.dark-mode .features-header h2 {
+  color: #ffffff;
+}
+
+html.dark-mode .feature-card {
+  background: rgba(30, 30, 30, 0.7);
+  border-color: rgba(201, 166, 107, 0.1);
+  color: #ffffff;
+}
+
+html.dark-mode .feature-card h3 {
+  color: #ffffff;
+}
+
+html.dark-mode .feature-card p {
+  color: #b0b0b0;
+}
+
+html.dark-mode .feature-card:hover {
+  background-color: #1e1e1e;
+  border-color: #c9a66b;
+}
+
+html.dark-mode .feature-card .feature-number {
+  color: rgba(255, 255, 255, 0.04);
+}
+
+html.dark-mode .feature-card:hover .feature-number {
+  color: rgba(201, 166, 107, 0.1);
+}
+
+/* İletişim Sayfası */
+html.dark-mode .contact-page-section {
+  background-color: #121212;
+}
+
+html.dark-mode .title-box h2 {
+  color: #ffffff;
+}
+
+html.dark-mode .contact-desc {
+  color: #aaaaaa;
+}
+
+html.dark-mode .icon-box {
+  background-color: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark-mode .text-box .label {
+  color: #888888;
+}
+
+html.dark-mode .text-box .value {
+  color: #ffffff;
+}
+
+html.dark-mode .contact-form-wrapper {
+  background: #1e1e1e;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+html.dark-mode .custom-form label {
+  color: #aaaaaa;
+}
+
+html.dark-mode .custom-form input,
+html.dark-mode .custom-form select,
+html.dark-mode .custom-form textarea {
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+html.dark-mode .custom-form select option {
+  background-color: #1e1e1e; /* Açılır kutu arka planı koyu gri */
+  color: #ffffff; /* Yazı rengi beyaz */
+}
+
+html.dark-mode .custom-form input:focus,
+html.dark-mode .custom-form select:focus,
+html.dark-mode .custom-form textarea:focus {
+  border-bottom-color: #c9a66b;
+}
+
+/* ==========================================================================
+   SABİT YÜZEN SOSYAL MEDYA BUTONLARI (FLOATING SOCIALS)
+   ========================================================================== */
+.floating-socials {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.floating-item {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+  font-size: 28px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.floating-item.instagram {
+  background-color: #e4405f; /* Instagram flat mark rengi */
+}
+
+.floating-item.whatsapp {
+  background-color: #25d366; /* WhatsApp flat mark rengi */
+}
+
+.floating-item.phone {
+  background-color: #c9a66b; /* Yüce Dekor Altın rengi */
+}
+
+.floating-item:hover {
+  transform: scale(1.12) translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobilde buton boyutunu hafifçe küçültelim */
+@media (max-width: 768px) {
+  .floating-socials {
+    right: 15px;
+    bottom: 15px;
+    gap: 10px;
+  }
+  .floating-item {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+}
+
+/* ==========================================================================
+   DİNAMİK FİYAT VE İNDİRİM STİLLERİ
+   ========================================================================== */
+.product-price-box {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.product-price-box .old-price {
+  text-decoration: line-through;
+  color: #888888;
+  font-size: 0.9rem;
+}
+
+.product-price-box .current-price {
+  color: goldenrod;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.product-price-box .discount-badge {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(231, 76, 60, 0.3);
+}
+
+/* Ana Sayfa İndirimli Ürünler Bölümü Stilleri */
+.discounts-section {
+  padding: 60px 5%;
+  background: rgba(201, 166, 107, 0.03);
+  border-bottom: 1px solid rgba(201, 166, 107, 0.1);
+}
+
+.discounts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.discount-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+html.dark-mode .discount-card {
+  background: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.discount-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.discount-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.discount-card .card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.discount-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  color: inherit;
+}
+
+.discount-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+html.dark-mode .discount-card p {
+  color: #aaa;
+}
+
+.discount-ribbon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   HİZMET DETAY MODAL (AÇILIR PENCERE) STİLLERİ
+   ========================================================================== */
+.detail-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.detail-modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(201, 166, 107, 0.2);
+}
+
+html.dark-mode .modal-content {
+  background: #1e1e1e;
+  color: #ffffff;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+html.dark-mode .close-modal {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.close-modal:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: rotate(90deg);
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  min-height: 500px;
+}
+
+.modal-left {
+  background: #fdfdfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right: 1px solid #f0f0f0;
+}
+
+html.dark-mode .modal-left {
+  background: #181818;
+  border-right-color: #333;
+}
+
+.modal-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-right {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal-right h2 {
+  font-size: 28px;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+html.dark-mode .modal-right h2 {
+  color: #ffffff;
+}
+
+.modal-right p {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+html.dark-mode .modal-right p {
+  color: #aaaaaa;
+}
+
+.specs-section {
+  margin-bottom: 30px;
+}
+
+.specs-section h3 {
+  font-size: 16px;
+  color: #c9a66b;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.specs-table tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+html.dark-mode .specs-table tr {
+  border-bottom-color: #333;
+}
+
+.specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.specs-table td {
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.spec-label {
+  color: #777777;
+  font-weight: 600;
+  width: 45%;
+}
+
+html.dark-mode .spec-label {
+  color: #888888;
+}
+
+.spec-value {
+  color: #222222;
+  font-weight: 500;
+}
+
+html.dark-mode .spec-value {
+  color: #ffffff;
+}
+
+.modal-whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25d366;
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+  margin-top: 20px;
+}
+
+.modal-whatsapp-btn:hover {
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.35);
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-left {
+    height: 250px;
+    border-radius: 20px 20px 0 0;
+    border-right: none;
+  }
+  .modal-right {
+    padding: 25px 20px;
+  }
+}
+
